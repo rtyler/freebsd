@@ -1,0 +1,32 @@
+#
+# KIWI
+#
+include GENERIC
+ident		KIWI
+
+
+# Debugging support.  Always need this:
+options 	KDB			# Enable kernel debugger support.
+options 	KDB_TRACE		# Print a stack trace for a panic.
+
+# Enable debugging for the iwn(4) driver
+options        IWN_DEBUG
+
+# Wireless NIC cards
+device		wlan		# 802.11 support
+options 	IEEE80211_DEBUG	# enable debug msgs
+options 	IEEE80211_AMPDU_AGE # age frames in AMPDU reorder q's
+options 	IEEE80211_SUPPORT_MESH	# enable 802.11s draft support
+device		wlan_wep	# 802.11 WEP support
+device		wlan_ccmp	# 802.11 CCMP support
+device		wlan_tkip	# 802.11 TKIP support
+device		wlan_amrr	# AMRR transmit rate control algorithm
+device		iwn		# Intel 4965/1000/5000/6000 wireless NICs.
+
+# The `bpf' device enables the Berkeley Packet Filter.
+# Be aware of the administrative consequences of enabling this!
+# Note that 'bpf' is required for DHCP.
+device		bpf		# Berkeley packet filter
+
+device		netmap  # a framework for fast packet I/O
+device		pf      # packet filter firewall
