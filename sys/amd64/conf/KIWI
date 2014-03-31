@@ -1,7 +1,7 @@
 #
 # KIWI
 #
-include GENERIC
+include VT
 ident		KIWI
 
 
